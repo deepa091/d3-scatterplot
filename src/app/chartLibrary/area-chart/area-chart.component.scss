@@ -1,0 +1,14 @@
+.AreaChart {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.myXaxis .domain,
+.myYaxis .domain {
+  stroke-width: 0;
+}
+.tick text {
+  stroke-width: 1;
+  font-weight: bold;
+}

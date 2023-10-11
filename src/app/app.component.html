@@ -1,0 +1,72 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <span>{{ title }} </span>
+</div>
+<!-- Year Filter -->
+<div class="toolbar filterClassContainer" role="banner">
+  <div *ngIf="yearlyData.length > 0" class="filterClass">
+    <label>Year: </label>
+    <select #teams (change)="selected(teams.value)">
+      <option default>2021</option>
+      <option *ngFor="let item of yearlyData">
+        {{ item }}
+      </option>
+    </select>
+  </div>
+</div>
+<!-- KPI Cards -->
+<div class="flex-container" role="main" style="margin-top: 75px">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title
+        >World Population <br />( {{ selectedYear }})</mat-card-title
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ total_pop }}</p>
+    </mat-card-content></mat-card
+  >
+  <mat-card class="example-card" style="height: 400px;width: 600px;position: relative;">
+    <mat-card-header>
+      <mat-card-title>Population Growth</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="position: relative;height: 100%;width: 100%;">
+      <app-area-chart
+        [chartData]="chartData"
+        class="areaChartContainer"
+      ></app-area-chart> </mat-card-content
+  ></mat-card>
+  <!-- <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title
+          >Population Density for Year: {{ selectedYear }}</mat-card-title
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ pop_density }}</p>
+      </mat-card-content></mat-card
+    > -->
+  <!-- <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title
+          >Population Growth Rate for Year: {{ selectedYear }}</mat-card-title
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ pop_growth }}</p>
+      </mat-card-content></mat-card
+    > -->
+</div>
+
+<div class="flex-container">
+  <mat-card-title style="position: absolute; padding: 0.5em"
+    >Population Growth vs. Density Correlation</mat-card-title
+  >
+
+  <app-scatter-plot
+    [chartData]="filterData"
+    class="chartContainer"
+  ></app-scatter-plot>
+</div>
+
+<router-outlet></router-outlet>

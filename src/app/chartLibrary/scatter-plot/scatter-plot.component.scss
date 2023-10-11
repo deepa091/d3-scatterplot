@@ -1,0 +1,31 @@
+.Scatterplot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+svg {
+  overflow: visible;
+  position: relative;
+}
+
+.tooltip {
+  min-width: 80px;
+  height: auto;
+  background: none repeat scroll 0 0 #fff;
+  position: absolute;
+  border: 1px solid silver;
+  padding: 10px;
+  text-align: justify;
+}
+.data-vis-circle {
+  cursor: pointer;
+}
+
+.data-vis-line-tick text {
+  font-size: 0.9em;
+  fill: #635f5d;
+  font-weight: bold;
+}
+.data-vis-line-tick line {
+  stroke: #c2c3c4;
+}
